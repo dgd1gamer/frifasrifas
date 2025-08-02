@@ -9,11 +9,18 @@ import jakarta.persistence.ManyToOne
 import java.util.Date
 import java.util.UUID
 import jakarta.persistence.*
+import org.hibernate.annotations.GenericGenerator
+import org.hibernate.annotations.JdbcTypeCode
+import org.hibernate.type.SqlTypes
 
 @Entity
 data class Raffle(
-    @Id @GeneratedValue(strategy = GenerationType.UUID)
-    val id: UUID? = null,
+    @Id
+    @GeneratedValue
+    @JdbcTypeCode(SqlTypes.CHAR)
+    @Column(columnDefinition = "CHAR(36)")
+    val id: String? = null,
+
 
     val title: String,
     val description: String,
