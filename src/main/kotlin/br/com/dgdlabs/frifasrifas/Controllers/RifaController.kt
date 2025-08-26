@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 class RifaController {
 
 
-    @GetMapping("/")
+    @GetMapping("/helloworld")
     fun helloworld(): String {
         return "Hello World"
     }
